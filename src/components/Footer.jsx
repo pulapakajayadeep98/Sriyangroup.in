@@ -19,10 +19,12 @@ export default function Footer() {
             height="auto"
           />
 
-          <p className="footer-description">
-            At <strong>Sriyan Group</strong> we deliver premium homes and commercial
-            spaces with integrity, innovation, and a commitment to excellence.
-          </p>
+        <p className="footer-description">
+  At <strong>Sriyan Group</strong>, we empower brands with innovative marketing
+  solutions — combining creativity, strategy, and technology to drive real growth
+  and lasting impact.
+</p>
+
         </section>
 
         {/* QUICK LINKS */}
@@ -58,12 +60,7 @@ export default function Footer() {
               <FaEnvelope className="footer-icon" aria-hidden="true" />
               <a href="mailto:anwarpasha@live.in">anwarpasha@live.in</a>
             </li>
-            <li>
-              <FaGlobe className="footer-icon" aria-hidden="true" />
-              <a href="https://www.sriyangroup.in/" target="_blank" rel="noreferrer">
-                www.sriyagroup.in
-              </a>
-            </li>
+         
             <li>
               <FaPhone className="footer-icon" aria-hidden="true" />
               <a href="tel:+918341676712">+91 83416 76712</a>

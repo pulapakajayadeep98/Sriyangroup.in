@@ -35,6 +35,7 @@
   display: grid;
   place-items: center;
   margin-bottom: 48px; /* slightly tighter to feel connected */
+
 }
 .svc-hero__overlay {
   width: 100%;

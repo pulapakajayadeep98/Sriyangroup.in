@@ -1,10 +1,11 @@
 /* ============ FOOTER (Professional) ============ */
 .site-footer{
   /* deep navy gradient for depth */
-  background: linear-gradient(135deg, #000428, #000d18);
+    background: linear-gradient(293deg, #004a53, #000d18);
+
   color:#f4f6fa;
   padding: clamp(2.5rem, 4vw, 4rem) 2rem 1.25rem;
-  font-family: "Poppins", "Segoe UI", Roboto, Arial, sans-serif;
+   font-family: "Raleway", sans-serif;
 }
 
 /* Grid */
@@ -118,7 +119,7 @@
 .footer-bottom{
   text-align:center;
   padding: 1rem 0 0;
-  color:#484b4f;
+  color:#9ca1a8;
   font-size: clamp(.9rem, .95vw, .95rem);
 }
 .footer-bottom strong{ color:#fff; }
