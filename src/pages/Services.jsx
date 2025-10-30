@@ -1,7 +1,7 @@
 import React from "react";
 import "./ServicesPage.css";
 import heroImage from "/cooo.jpg"; // ✅ Adjust path if your image is in src/assets/
-
+import { Link } from "react-router-dom";
 export default function ServicesPage() {
   return (
     <div className="svc-wrap">
@@ -128,7 +128,9 @@ export default function ServicesPage() {
             data-driven strategy to drive steady site visits,
             engaged prospects, and predictable conversions.
           </p>
-          <a className="collab-btn" href="/contact">Contact Us</a>
+          <Link to="/contact" className="collab-btn">
+  Contact Us
+</Link>
         </div>
       </section>
 
