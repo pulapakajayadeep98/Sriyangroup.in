@@ -1,42 +1,89 @@
-#root {
-  max-width: 1280px;
+/* === GLOBAL LAYOUT RESET === */
+/* hard reset at the very top-level */
+html, body, #root, .app {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+/* (optional) keep layout stable on Windows/Chrome */
+html { scrollbar-gutter: stable; }
+
+/* Remove all browser default margins/padding */
+
+
+/* This ensures 100% viewport width, even inside padded containers */
+
+
+/* Utility class (use if needed manually) */
+.full-bleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+/* 1) Never let the page show a sideways rail */
+html, body, #root, .app {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+}
+
+/* 2) Nuclear full-bleed: stretches background to viewport edges
+      even if the element lives inside a padded container. */
+.edge-lock {
+  position: relative;
+  isolation: isolate;             /* keep pseudo behind content */
+}
+
+/* Paint the element's background edge-to-edge with a pseudo */
+.edge-lock::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0; bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);    /* centers 100vw without causing overflow */
+  background: inherit;            /* uses the same bg as the element */
+}
+
+/* If the element uses a background image, keep it on the element */
+.edge-lock {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding-left: 0 !important;     /* ignore container side padding visually */
+  padding-right: 0 !important;
+}
+
+/* Optional: your inner content stays centered and padded */
+.header-inner,
+.footer-container,
+.hero-inner {
+  max-width: 1160px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Ensure header/footer backgrounds span edge to edge */
+header,
+footer {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 0;
+  border-radius: 0;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* Prevent shadow gaps or borders */
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+/* Just to be safe, reset box sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
 }

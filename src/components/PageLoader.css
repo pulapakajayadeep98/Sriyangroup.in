@@ -1,65 +1,51 @@
-/* ===== Page Loader (full screen) ===== */
+/* PageLoader.css — mobile-safe */
 .pgloader{
-  position: fixed; inset: 0;
-  background: rgba(255,255,255, 0.85);
+  position: fixed;
+  left: 0; top: 0;
+  width: 100vw;
+  height: 100dvh;              /* avoids dynamic toolbar issues */
+  background: rgba(255,255,255,0.9);
+  -webkit-backdrop-filter: blur(4px); /* iOS */
   backdrop-filter: blur(4px);
   display: grid; place-items: center;
   z-index: 9999;
-
-  /* important: hide completely when not shown */
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-
-  /* delay visibility toggle until opacity finishes */
   transition: opacity .25s ease, visibility 0s linear .25s;
-  will-change: opacity;
+
+  /* prevent odd paints / edges */
+  overflow: hidden;
+  contain: layout paint size;
 }
 
 .pgloader.is-visible{
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transition: opacity .25s ease; /* no delay when showing */
+  transition: opacity .25s ease;
 }
 
-.pgloader__box{
-  position: relative;
-  width: 120px; height: 120px;
-  display: grid; place-items: center;
-}
-
-.pgloader__logo{
-  width: 72px; height: 72px; object-fit: contain;
-  filter: drop-shadow(0 6px 18px rgba(12,21,39,.12));
-  animation: logoPulse 1.6s ease-in-out infinite;
-}
-
-/* ring spinner around the logo */
+.pgloader__box{ position: relative; width:120px; height:120px; display:grid; place-items:center; }
+.pgloader__logo{ width:72px; height:72px; object-fit:contain; animation:logoPulse 1.6s ease-in-out infinite; filter:drop-shadow(0 6px 18px rgba(12,21,39,.12)); }
 .pgloader__ring{
-  position: absolute; inset: 0;
-  border-radius: 999px;
-  border: 6px solid rgba(12,21,39,.08);
-  border-top-color: #0c1527;             /* navy */
-  animation: ringSpin 1s linear infinite;
-  box-shadow: 0 10px 26px rgba(12,21,39,.08) inset;
+  position:absolute; inset:0; border-radius:999px;
+  border:4px solid rgba(15,23,42,.08);
+  border-top-color:#0c1527;
+  animation:ringSpin 1s linear infinite;
+  /* remove inset shadow which can render as a square edge on some GPUs */
+  /* box-shadow: 0 10px 26px rgba(12,21,39,.08) inset; */
+  filter: drop-shadow(0 4px 10px rgba(12,21,39,.10));
 }
+.pgloader__hint{ position:absolute; bottom:-28px; left:50%; transform:translateX(-50%); font:700 12px/1.2 Inter, system-ui, Segoe UI, Roboto, Arial, sans-serif; letter-spacing:.12em; text-transform:uppercase; color:#334155; }
 
-.pgloader__hint{
-  position: absolute; bottom: -28px; left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--font-main, "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif);
-  font-weight: 700; font-size: 12px; letter-spacing: .12em;
-  text-transform: uppercase; color: #334155;
-}
+@keyframes ringSpin{ to{ transform:rotate(360deg); } }
+@keyframes logoPulse{ 0%,100%{ transform:scale(1); opacity:1; } 50%{ transform:scale(1.06); opacity:.95; } }
 
-@keyframes ringSpin { to { transform: rotate(360deg); } }
-@keyframes logoPulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.06); opacity: .95; }
-}
-
-/* motion-safe */
 @media (prefers-reduced-motion: reduce){
-  .pgloader__ring, .pgloader__logo { animation: none; }
+  .pgloader__ring, .pgloader__logo{ animation:none; }
+}
+/* On very small screens, disable blur to avoid halo entirely */
+@media (max-width: 480px){
+  .pgloader{ -webkit-backdrop-filter:none; backdrop-filter:none; background:rgba(255,255,255,0.98); }
 }

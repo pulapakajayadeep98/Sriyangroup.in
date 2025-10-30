@@ -32,7 +32,7 @@ export default function Navbar() {
 
   return (
     <header className={`navbar ${open ? "open" : ""}`}>
-      <div className="nav-inner">
+      <div className="nav-inner ">
         {/* Brand / Logo */}
         <Link to="/" className="brand" aria-label="Sriyan Group Home">
           <img src="/logo.png" alt="Sriyan Group Logo" className="nav-logo" />

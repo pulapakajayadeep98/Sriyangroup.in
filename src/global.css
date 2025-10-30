@@ -1,0 +1,69 @@
+/* =========================
+   GLOBAL BASE (one source of truth)
+   ========================= */
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  --font-main: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --text: #0f172a;      /* slate-900 */
+  --bg: #ffffff;
+}
+
+html, body, #root, .app {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+html { overflow-x: clip; scrollbar-gutter: stable; }
+body { overflow-x: hidden; font-family: var(--font-main); color: var(--text); background: var(--bg); line-height: 1.6; }
+
+/* Remove Vite starter centering that boxed the whole app */
+body, #root, .app { display: block; min-width: 0; }
+
+/* Links */
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Headings (optional defaults) */
+h1 { font-size: clamp(28px, 4vw, 38px); margin: 0; }
+h2 { font-size: clamp(20px, 3vw, 26px); margin: 0; }
+
+/* =========================
+   LAYOUT HELPERS
+   ========================= */
+
+/* Constrained content wrapper you can use anywhere */
+.container, .header-inner, .footer-container, .hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* If a bar/hero/footer sits inside a padded container, let its background bleed edge-to-edge */
+.bleed-bg { position: relative; isolation: isolate; }
+.bleed-bg::before {
+  content: "";
+  position: absolute; z-index: -1;
+  top: 0; bottom: 0; left: 50%;
+  width: 100vw; transform: translateX(-50%);
+  background: inherit;
+  background-size: cover; background-position: center; background-repeat: no-repeat;
+}
+
+/* Optional utility: force any section full-bleed (background and content) */
+.full-bleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+/* Normalize common big blocks */
+header, footer, section { border: 0; border-radius: 0; box-shadow: none; }
+
+/* Media elements sane defaults */
+img, video { display: block; max-width: 100%; height: auto; }
+
+/* Buttons inherit type and avoid demo styles */
+button { font: inherit; }

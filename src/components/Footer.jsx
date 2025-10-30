@@ -4,8 +4,8 @@ import "./Footer.css";
 
 export default function Footer() {
   return (
-    <footer className="site-footer" aria-labelledby="footerTitle">
-      <div className="footer-container">
+    <footer className="site-footer " aria-labelledby="footerTitle">
+      <div className="footer-container ">
         {/* INFORMATION */}
         <section className="footer-section" aria-label="Information">
           <h2 id="footerTitle" className="footer-heading">Information</h2>

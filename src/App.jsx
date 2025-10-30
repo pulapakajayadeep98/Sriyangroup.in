@@ -3,6 +3,7 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import "./global.css";
 
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";

@@ -5,7 +5,7 @@ export default function TermsConditions() {
   return (
     <>
       {/* Simple hero */}
-      <section className="terms-hero-top">
+      <section className="terms-hero-top ">
         <h1>Terms & Conditions</h1>
         <p className="last-updated">Last updated on Oct 29th 2025</p>
       </section>
