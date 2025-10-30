@@ -40,7 +40,10 @@ export default function Footer() {
             <li><Link to="/privacy-policy">Privacy Policy</Link></li>
             <li><Link to="/terms-and-conditions">Terms and Conditions</Link></li>
             <li><Link to="/refund-cancellation">Cancellation and Refund Policy</Link></li>
-             <li><Link to="/refund-cancellation">Shipping and Delivery Policy</Link></li>
+          
+              <li>
+    <Link to="/shipping-policy">Shipping and Delivery Policy</Link>
+  </li>
           </ul>
         </nav>
 

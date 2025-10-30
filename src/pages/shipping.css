@@ -1,28 +1,29 @@
-/* ===== Simple Hero Section ===== */
-.refund-hero-top {
+/* ===== Simple white hero section ===== */
+.shipping-hero-top {
   background: #ffffff;
   padding: 60px 20px 30px;
   text-align: center;
   border-bottom: 2px solid #e5e7eb;
 }
 
-.refund-hero-top h1 {
+.shipping-hero-top h1 {
   font-size: clamp(28px, 4vw, 38px);
   font-weight: 800;
   color: #0f172a;
   margin-bottom: 12px;
 }
 
+/* "Last updated" style */
 .last-updated {
-  color: #334155;
+  color: #334155; /* dark slate gray */
   font-weight: 600;
   font-size: 16px;
   margin-top: 0;
   margin-bottom: 0;
 }
 
-/* ===== Main Content ===== */
-.refund-wrapper {
+/* ===== Content styling ===== */
+.shipping-wrapper {
   max-width: 900px;
   margin: 50px auto 80px;
   padding: 24px;
@@ -35,16 +36,16 @@
   border-radius: 12px;
 }
 
-.refund-wrapper p {
+.shipping-wrapper p {
   margin-bottom: 14px;
 }
 
-.refund-wrapper a {
+.shipping-wrapper a {
   color: #2563eb;
   text-decoration: none;
   font-weight: 600;
 }
 
-.refund-wrapper a:hover {
+.shipping-wrapper a:hover {
   text-decoration: underline;
 }

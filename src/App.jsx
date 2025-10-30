@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 import PageLoader from "./components/PageLoader.jsx";
 
+// Pages
 import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
 import Services from "./pages/Services.jsx";
@@ -15,6 +16,7 @@ import Contact from "./pages/Contact.jsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 import Terms from "./pages/Terms.jsx";
 import RefundCancellation from "./pages/RefundCancellation.jsx";
+import ShippingPolicy from "./pages/Shippingpolicy.jsx"; // ✅ added new page
 
 /** Scroll to top & focus <main> on route change */
 function ScrollToTopAndFocus({ children, focusRef }) {
@@ -39,17 +41,14 @@ export default function App() {
 
   // Route-change loader
   useEffect(() => {
-    // show loader immediately
     setLoading(true);
-    // avoid scroll during transition
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
-    // small realistic delay; hide after paint
     const t = setTimeout(() => {
       setLoading(false);
       document.body.style.overflow = prevOverflow;
-    }, 500); // adjust 350–700ms to taste
+    }, 500);
 
     return () => {
       clearTimeout(t);
@@ -71,11 +70,14 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
-            {/* Policies in footer */}
+
+            {/* ===== Policies ===== */}
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-and-conditions" element={<Terms />} />
             <Route path="/refund-cancellation" element={<RefundCancellation />} />
-            {/* Fallback */}
+            <Route path="/shipping-policy" element={<ShippingPolicy />} /> {/* ✅ new route */}
+
+            {/* ===== Fallback ===== */}
             <Route path="*" element={<Home />} />
           </Routes>
         </main>

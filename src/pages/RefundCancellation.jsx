@@ -1,131 +1,71 @@
-import { Link } from "react-router-dom";
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import "./cancel.css"; // reuse the same CSS styling
+import React from "react";
+import "./cancel.css"; // keep your existing policy CSS
 
 export default function RefundCancellation() {
-  useEffect(() => {
-    AOS.init({
-      duration: 480,
-      once: true,
-      easing: "ease-out",
-      offset: 80,
-    });
-    AOS.refresh();
-  }, []);
-
   return (
     <>
-      {/* Hero Section */}
-      <section className="terms-hero">
-        <div className="terms-hero-overlay">
-          <div className="terms-hero-content">
-            <h1 data-aos="fade-up">Refund &amp; Cancellation Policy</h1>
-
-            {/* Breadcrumb */}
-            <nav
-              className="tc-breadcrumb"
-              aria-label="Breadcrumb"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <Link to="/">Home</Link>
-              <span aria-hidden="true">/</span>
-              <span>Refund &amp; Cancellation Policy</span>
-            </nav>
-          </div>
-        </div>
+      {/* ===== Simple Hero ===== */}
+      <section className="refund-hero-top">
+        <h1>Cancellation and Refund Policy</h1>
+        <p className="last-updated">Last updated on Oct 29th 2025</p>
       </section>
 
-      {/* Main Content */}
-      <main className="terms-container">
-        <section className="tc-section" data-aos="fade-up">
-          <h2>1. Introduction</h2>
-          <p>
-            Thank you for choosing <strong>Sriyan Group</strong> (the
-            “Company”, “we”, “us”, “our”). The following policy applies to all
-            purchases of products and services from our website{" "}
-            <a
-              href="https://www.sriyangroup.in/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              https://sriyangroup.in
-            </a>
-            .
-          </p>
-        </section>
+      {/* ===== Content ===== */}
+      <main className="refund-wrapper">
+        <p>
+          Thank you for choosing <strong>Sriyan Group</strong> (“we”, “us”,
+          “our”). The following policy applies to all purchases of products and
+          services from our website{" "}
+          <a
+            href="https://www.sriyangroup.in/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            https://sriyangroup.in
+          </a>
+          .
+        </p>
 
-        <section className="tc-section" data-aos="fade-up">
-          <h2>2. No Refunds &amp; No Cancellations</h2>
-          <ul>
-            <li>
-              All sales are final. We do not accept requests for refunds or
-              cancellations once an order has been placed and payment has been
-              processed.
-            </li>
-            <li>
-              Please review your order carefully, including product information,
-              pricing, and shipping details, before submitting the order.
-            </li>
-          </ul>
-        </section>
+        <p>
+          <strong>1. No Refunds & No Cancellations:</strong> All sales are final.
+          We do not accept requests for refunds or cancellations once an order
+          has been placed and payment has been processed. Please review your
+          order carefully, including product information, pricing, and shipping
+          details, before submitting the order.
+        </p>
 
-        <section className="tc-section" data-aos="fade-up">
-          <h2>3. How to Request a Remedy</h2>
-          <ul>
-            <li>
-              If you believe there is an issue with your order, please contact
-              us at{" "}
-              <a href="mailto:anwarpasha@live.in">anwarpasha@live.in</a>.
-            </li>
-            <li>
-              Provide your order number, date of purchase, a clear description
-              of the issue, and photographs (if applicable).
-            </li>
-            <li>
-              We will investigate and communicate our decision within a
-              reasonable timeframe.
-            </li>
-          </ul>
-        </section>
+        <p>
+          <strong>2. How to Request a Remedy:</strong> If you believe there is an
+          issue with your order, please contact us at{" "}
+          <a href="mailto:anwarpasha@live.in">anwarpasha@live.in</a>. Provide
+          your order number, date of purchase, a clear description of the issue,
+          and photographs (if applicable). We will investigate and communicate
+          our decision within a reasonable timeframe.
+        </p>
 
-        <section className="tc-section" data-aos="fade-up">
-          <h2>4. Modifications to this Policy</h2>
-          <ul>
-            <li>
-              We may update this Refund &amp; Cancellation Policy at any time by
-              posting the revised version on the Site.
-            </li>
-            <li>
-              The “Last Updated” date will be modified accordingly.
-            </li>
-            <li>
-              Your continued use of our services or ordering after such changes
-              constitutes acceptance of the updated policy.
-            </li>
-          </ul>
-        </section>
+        <p>
+          <strong>3. Modifications to this Policy:</strong> We may update this
+          Refund & Cancellation Policy at any time by posting the revised version
+          on our website. The “Last Updated” date will be modified accordingly.
+          Your continued use of our services or ordering after such changes
+          constitutes acceptance of the updated policy.
+        </p>
 
-        <section className="tc-section" data-aos="fade-up">
-          <h2>5. Contact Us</h2>
-          <p>
-            If you have any questions or concerns about this policy, please
-            contact us at:
-          </p>
-          <p>
-            <strong>Email:</strong>{" "}
-            <a href="mailto:anwarpasha@live.in">anwarpasha@live.in</a>
-            <br />
-            <strong>Address:</strong> Vasavi MPM Grand, Unit No – 1312, 12th
-            Floor, Ameerpet X Road, Beside Ameerpet Metro Station, Telangana
-            500073
-            <br />
-            <strong>Mobile:</strong>{" "}
-            <a href="tel:+91988524320">+91 988524320</a>
-          </p>
-        </section>
+        <p>
+          <strong>4. Contact Us:</strong> If you have any questions or concerns
+          about this policy, please reach out to us:
+        </p>
+
+        <p>
+          <strong>Email:</strong>{" "}
+          <a href="mailto:anwarpasha@live.in">anwarpasha@live.in</a>
+          <br />
+          <strong>Address:</strong> Vasavi MPM Grand, Unit No – 1312, 12th Floor,
+          Ameerpet X Road, Beside Ameerpet Metro Station, Telangana 500073
+          <br />
+          <strong>Mobile:</strong>{" "}
+          <a href="tel:+91988524320">+91 988524320</a>
+        </p>
       </main>
     </>
   );
