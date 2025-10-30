@@ -154,7 +154,7 @@ header, .section, .page, .container, [data-full-bleed] {
 /* Responsive */
 @media (max-width: 768px) {
   .hero-title {
-    font-size: clamp(48px, 7vw, 52px);
+    font-size: clamp(53px, 7vw, 52px);
   }
   .hero-sub {
     font-size: 16px;
