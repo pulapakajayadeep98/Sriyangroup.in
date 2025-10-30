@@ -145,9 +145,11 @@ export default function HomeHero() {
           </article>
         </div>
 
-        <div className="center-cta">
-          <a className="btn btn--primary" href="/services">View all services</a>
-        </div>
+    <div className="center-cta">
+  <Link to="/services" className="btn btn--primary">
+    View all services
+  </Link>
+</div>
       </section>
 
       {/* ===== WHY CHOOSE US ===== */}
@@ -240,10 +242,14 @@ export default function HomeHero() {
         <div className="home-container cta-inner">
           <h2>Ready to grow your sales?</h2>
           <p>Let’s align on targets, deployment, and reporting — then get moving.</p>
-          <div className="cta-actions">
-            <a className="btn btn--primary" href="/contact">Contact Us</a>
-            <a className="btn btn--ghostDark" href="/services">See Services</a>
-          </div>
+        <div className="cta-actions">
+  <Link to="/contact" className="btn btn--primary">
+    Contact Us
+  </Link>
+  <Link to="/services" className="btn btn--ghostDark">
+    See Services
+  </Link>
+</div>
         </div>
       </section>
     </div>
