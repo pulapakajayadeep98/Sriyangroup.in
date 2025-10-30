@@ -13,6 +13,47 @@
   box-sizing: border-box;
   overflow: hidden;
 }
+/* 1) Prevent any horizontal spill that can reveal 1px rails */
+html, body {
+  overflow-x: hidden;
+  background: #f6f8fb; /* or your page bg */
+}
+
+/* 2) Nuke accidental borders/outlines on full-height wrappers */
+html, body, #root, main, .about-wrapper, .c-container {
+  border-left: 0 !important;
+  border-right: 0 !important;
+  outline: none !important;
+  box-shadow: none;
+}
+
+/* 3) Remove focus ring on big layout containers (keep it on real controls) */
+main:focus,
+.about-wrapper:focus,
+.c-container:focus {
+  outline: none;
+}
+
+/* Keep accessibility for interactive elements */
+:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 3px;
+}
+
+/* 4) If you use a full-screen overlay/loader, make sure it doesn’t create an edge */
+.pgloader {
+  border: 0;
+  outline: none;
+  width: 100vw;
+  height: 100dvh;         /* mobile-safe full height */
+  left: 0; top: 0; position: fixed;
+}
+
+/* 5) Some Windows/Chrome combos draw a faint edge when a container is slightly wider than the viewport.
+      This guards common culprits (sticky headers/sections). */
+header, .section, .page, .container, [data-full-bleed] {
+  max-width: 100%;
+}
 
 
 .hero-inner {
@@ -92,7 +133,7 @@
 }
 
 .btn--primary {
-  background: #0c1527;
+  background: #004a53;
   color: #fff;
 }
 

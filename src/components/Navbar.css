@@ -3,7 +3,8 @@
   top: 0;
   width: 100%;
   z-index: 1000;
-  background: linear-gradient(135deg, #000428, #000d18);
+ 
+  background: linear-gradient(293deg, #004a53, #000d18);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(8px);
 }
