@@ -4,16 +4,18 @@ import "./Navbar.css";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [showPolicies, setShowPolicies] = useState(false);
   const location = useLocation();
   const menuRef = useRef(null);
   const btnRef = useRef(null);
 
-  // Close menu on route change
+  // Close menus on route change
   useEffect(() => {
     setOpen(false);
+    setShowPolicies(false);
   }, [location.pathname]);
 
-  // Close if clicked outside on mobile
+  // Close burger if clicking outside
   useEffect(() => {
     function handleClickOutside(e) {
       if (!open) return;
@@ -24,6 +26,7 @@ export default function Navbar() {
         !btnRef.current.contains(e.target)
       ) {
         setOpen(false);
+        setShowPolicies(false);
       }
     }
     document.addEventListener("click", handleClickOutside);
@@ -32,14 +35,12 @@ export default function Navbar() {
 
   return (
     <header className={`navbar ${open ? "open" : ""}`}>
-      <div className="nav-inner ">
-        {/* Brand / Logo */}
+      <div className="nav-inner">
         <Link to="/" className="brand" aria-label="Sriyan Group Home">
           <img src="/logo.png" alt="Sriyan Group Logo" className="nav-logo" />
           <span className="brand-name">Sriyan Group</span>
         </Link>
 
-        {/* Hamburger */}
         <button
           ref={btnRef}
           className={`burger ${open ? "active" : ""}`}
@@ -48,12 +49,11 @@ export default function Navbar() {
           aria-controls="primary-navigation"
           onClick={() => setOpen(!open)}
         >
-          <span className="line"></span>
-          <span className="line"></span>
-          <span className="line"></span>
+          <span className="line" />
+          <span className="line" />
+          <span className="line" />
         </button>
 
-        {/* Navigation Links */}
         <nav
           id="primary-navigation"
           ref={menuRef}
@@ -63,6 +63,25 @@ export default function Navbar() {
           <NavLink to="/about">ABOUT</NavLink>
           <NavLink to="/services">SERVICES</NavLink>
           <NavLink to="/contact">CONTACT</NavLink>
+
+          {/* POLICIES */}
+          <div className={`nav-dropdown ${showPolicies ? "open" : ""}`}>
+            <button
+              className="nav-dropdown-btn"
+              aria-expanded={showPolicies}
+              onClick={() => setShowPolicies(v => !v)}
+              type="button"
+            >
+              POLICIES
+            </button>
+
+            <div className="nav-dropdown-menu">
+              <NavLink to="/privacy-policy">Privacy Policy</NavLink>
+              <NavLink to="/terms-and-conditions">Terms &amp; Conditions</NavLink>
+              <NavLink to="/refund-cancellation">Cancellation &amp; Refund Policy</NavLink>
+              <NavLink to="/shipping-policy">Shipping &amp; Delivery Policy</NavLink>
+            </div>
+          </div>
         </nav>
       </div>
     </header>

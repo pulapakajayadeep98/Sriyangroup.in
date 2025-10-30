@@ -197,3 +197,130 @@
     width: 60px;
   }
 }
+
+
+/* ===== Dropdown base ===== */
+.nav-links { align-items: center; }
+
+.nav-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-dropdown-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  transition: color .25s ease;
+}
+
+/* single caret via CSS */
+.nav-dropdown-btn::after {
+  content: "▾";
+  display: inline-block;
+  transform: translateY(-1px);
+  transition: transform .2s ease;
+}
+.nav-dropdown.open > .nav-dropdown-btn::after,
+.nav-dropdown:hover > .nav-dropdown-btn::after {
+  transform: rotate(180deg) translateY(1px);
+}
+
+.nav-dropdown-btn:hover { color: #e7b52b; }
+
+/* --- Desktop menu panel --- */
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;           /* no gap => no hover flicker */
+  right: 0;            /* align to button right edge */
+  left: auto;
+  min-width: 260px;
+  background: linear-gradient(293deg, #004a53, #000d18);
+  border-radius: 10px;
+  padding: 8px 0;
+  box-shadow: 0 12px 26px rgba(0,0,0,.35);
+  display: none;
+  z-index: 1000;
+}
+
+.nav-dropdown-menu a {
+  color: #fff;
+  padding: 10px 14px;
+  display: block;
+  font-weight: 500;
+  font-size: .90rem;
+  line-height: 1.25;
+  white-space: normal;
+  transition: background .15s ease, color .15s ease;
+}
+.nav-dropdown-menu a:hover {
+  background: rgba(255,255,255,.10);
+  color: #e7b52b;
+}
+
+/* Show on hover (desktop) */
+@media (hover: hover) and (pointer: fine) {
+  .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+}
+
+/* --- Mobile: stack under the button --- */
+/* ===== Center "POLICIES" in the mobile menu ===== */
+@media (max-width: 900px) {
+  /* your links are already centered—match their spacing */
+  .nav-links a {
+    padding: 16px 0;
+    text-align: center;
+  }
+
+  /* center the dropdown block itself */
+  .nav-dropdown {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;     /* <-- centers the trigger horizontally */
+    margin: 8px 0;           /* same vertical rhythm as other items */
+  }
+
+  /* center the "POLICIES" button text + caret */
+  .nav-dropdown-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; /* <-- centers text */
+    gap: 6px;
+    width: auto;             /* no full-width left alignment */
+    padding: 16px 0;         /* same spacing as other links */
+    text-align: center;
+  }
+
+  /* stack the submenu right under the button, full width if you like */
+  .nav-dropdown-menu {
+    position: static;        /* sits directly below */
+    width: 100%;             /* or remove this if you want it tight to content */
+    background: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 6px 0 0;
+    min-width: 0;
+    display: none;           /* hidden until open */
+  }
+
+  /* show when toggled open */
+  .nav-dropdown.open .nav-dropdown-menu { display: block; }
+
+  .nav-dropdown-menu a {
+    padding: 12px 0;
+    color: #fff;
+    text-align: center;
+  }
+}
+
