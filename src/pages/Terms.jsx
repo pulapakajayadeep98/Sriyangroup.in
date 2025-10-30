@@ -47,7 +47,7 @@ export default function TermsConditions() {
             Terms &amp; Conditions (“Terms”) govern your access to and use of
             the website{" "}
             <a
-              href="https://sriyangroup.in"
+              href="https://www.sriyangroup.in/"
               target="_blank"
               rel="noreferrer"
             >

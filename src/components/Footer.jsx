@@ -60,7 +60,7 @@ export default function Footer() {
             </li>
             <li>
               <FaGlobe className="footer-icon" aria-hidden="true" />
-              <a href="https://www.sriyagroup.in" target="_blank" rel="noreferrer">
+              <a href="https://www.sriyangroup.in/" target="_blank" rel="noreferrer">
                 www.sriyagroup.in
               </a>
             </li>

@@ -47,11 +47,11 @@ export default function RefundCancellation() {
             “Company”, “we”, “us”, “our”). The following policy applies to all
             purchases of products and services from our website{" "}
             <a
-              href="https://sriyangroup.in"
+              href="https://www.sriyangroup.in/"
               target="_blank"
               rel="noreferrer"
             >
-              https://sriyangroup.com
+              https://sriyangroup.in
             </a>
             .
           </p>

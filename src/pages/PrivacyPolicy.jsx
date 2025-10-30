@@ -36,7 +36,7 @@ export default function PrivacyPolicy() {
           <h2>Introduction</h2>
           <p>
             Welcome to <strong>Sriyan Group</strong> (“we”, “us”, “our”). We operate the website{" "}
-            <a href="https://sriyangroup.in" target="_blank" rel="noreferrer">https://sriyangroup.in</a> (the “Site”).
+            <a href="https://www.sriyangroup.in/" target="_blank" rel="noreferrer">https://sriyangroup.in</a> (the “Site”).
             We are committed to protecting and respecting your privacy. This Privacy Policy explains how we collect,
             use, share, and protect your personal data when you visit or use our Site.
           </p>
