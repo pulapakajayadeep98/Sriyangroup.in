@@ -1,5 +1,6 @@
 
 import "./HomePage.css";
+import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 export default function HomeHero() {
   const words = ["Sales ", "Field Sales", "Marketing "];
@@ -25,10 +26,10 @@ export default function HomeHero() {
       Unite sales, marketing, field, and service teams on one powerful execution platform…
     </p>
 
-    <div className="hero-actions" data-aos="zoom-in" data-aos-delay="220">
-      <a href="/contact" className="btn btn--primary">Book a demo</a>
-      <a href="/services" className="btn btn--outline">See Services</a>
-    </div>
+<div className="hero-actions" data-aos="zoom-in" data-aos-delay="220">
+  <Link to="/contact" className="btn btn--primary">Book a demo</Link>
+  <Link to="/services" className="btn btn--outline">See Services</Link>
+</div>
   </div>
 </section>
 
