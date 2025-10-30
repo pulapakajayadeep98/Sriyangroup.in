@@ -1,0 +1,198 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: linear-gradient(135deg, #000428, #000d18);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+}
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  position: relative;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #e7b52b;
+  text-decoration: none; /* make sure no underline appears */
+}
+
+/* optionally add your own neat hover line if you want */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #e7b52b;
+  transition: width 0.25s ease;
+}
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ✅ Brand Section */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.nav-logo {
+  width: 70px;
+  height: auto;
+  object-fit: contain;
+}
+
+.brand-name {
+  font-family: "Cinzel", "Trajan Pro", serif;
+  font-weight: 700;
+  font-size: 1.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: linear-gradient(180deg, #f9d976 0%, #e7b52b 60%, #b88a26 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* ✅ Navigation Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  position: relative;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #e7b52b;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #e7b52b;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* ✅ Mobile Burger */
+.burger {
+  display: none;
+  position: relative;
+  width: 32px;
+  height: 22px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.burger .line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #e7b52b;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.burger .line:nth-child(1) {
+  top: 3px;
+}
+
+.burger .line:nth-child(2) {
+  top: 10px;
+}
+
+.burger .line:nth-child(3) {
+  top: 17px;
+}
+
+.burger.active .line:nth-child(1) {
+  transform: rotate(45deg);
+  top: 10px;
+}
+
+.burger.active .line:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.active .line:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 10px;
+}
+
+/* ✅ Mobile Menu */
+@media (max-width: 900px) {
+  .burger {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #000428, #000d18);
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: none;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links a {
+    font-size: 1.0rem;
+    font-weight: 500;
+  }
+
+  .brand-name {
+    font-size: 1.5rem;
+  }
+
+  .nav-logo {
+    width: 60px;
+  }
+}

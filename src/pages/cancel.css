@@ -1,0 +1,277 @@
+/* =========================================================
+   Sriyan Group — Policy Pages (Privacy / Terms / Refund)
+   File: policy-new.css
+   Fonts: Work Sans (headings) + Roboto (body)
+   Scope: Only targets .privacy-*, .terms-*, .refund-*
+   ========================================================= */
+
+/* --- Optional: load fonts if not already global --- */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Work+Sans:wght@600;700;800&display=swap");
+
+/* ---------- Design tokens ---------- */
+:root{
+  --maxw: 1200px;
+  --pad-x: 24px;
+
+  /* Fluid type scale */
+  --fz-h1: clamp(30px, 4.6vw, 54px);
+  --fz-h2: clamp(22px, 2.5vw, 34px);
+  --fz-h3: clamp(17px, 1.6vw, 22px);
+  --fz-body: clamp(14px, 1.05vw, 18px);
+  --fz-small: clamp(12px, .95vw, 15px);
+
+  --ink: #1d2430;
+  --muted: #536079;
+  --brand: #004aad;
+  --brand-dark:#002f6c;
+
+  --section-gap: 48px;   /* rhythm between sections */
+  --para-gap: 12px;      /* rhythm between paragraphs */
+}
+
+/* ---------- Base type (kept gentle to avoid site-wide clashes) ---------- */
+.policy-body,
+.privacy-container,
+.terms-container,
+.refund-container{
+  font-family:"Roboto","Segoe UI",Arial,sans-serif;
+  color:var(--ink);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.policy-heading,
+.privacy-hero-content h1,
+.privacy-section h2,
+.terms-hero-content h1,
+.tc-section h2,
+.refund-hero-content h1,
+.rf-section h2{
+  font-family:"Work Sans","Roboto","Segoe UI",Arial,sans-serif;
+  letter-spacing:.2px;
+}
+
+/* ---------- Links ---------- */
+.privacy-container a,
+.terms-container a,
+.refund-container a{
+  color:var(--brand);
+  text-decoration:none;
+  transition:color .18s ease;
+}
+.privacy-container a:hover,
+.terms-container a:hover,
+.refund-container a:hover{
+  color:var(--brand-dark);
+  text-decoration:underline;
+}
+
+/* =========================================================
+   HERO (shared) — same image, left-aligned content
+   ========================================================= */
+.privacy-hero,
+.terms-hero,
+.refund-hero {
+  background: url("/policies.jpg");
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 360px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: grid;
+  place-items: center;
+  margin-bottom: 60px;
+}
+
+
+.privacy-hero-overlay,
+.terms-hero-overlay,
+.refund-hero-overlay{
+  width: 100%;
+  height: 100%;
+  background: rgba(12, 21, 39, 0.6);
+  display: grid;
+  place-items: center;
+
+}
+
+.privacy-hero-content,
+.terms-hero-content,
+.refund-hero-content{
+  max-width:var(--maxw);
+  padding:68px var(--pad-x) 44px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:14px;
+  text-align:left;
+}
+
+.privacy-hero-content h1,
+.terms-hero-content h1,
+.refund-hero-content h1{
+  font-size:45px;
+  font-weight:800;
+  align-items: left;
+  text-align: left;
+  margin:0;
+}
+
+/* Breadcrumb */
+.pp-breadcrumb,
+.tc-breadcrumb,
+.refund-breadcrumb{
+  display:flex;
+  align-items:left;
+  gap:10px;
+  font-size:var(--fz-small);
+  color:#ffffff;
+}
+.pp-breadcrumb a,
+.tc-breadcrumb a,
+.refund-breadcrumb a{ color:#fff; }
+.pp-breadcrumb span[aria-hidden="true"],
+.tc-breadcrumb span[aria-hidden="true"],
+.refund-breadcrumb span[aria-hidden="true"]{ opacity:.8 }
+
+/* =========================================================
+   MAIN WRAPPER + SECTIONS (shared)
+   ========================================================= */
+.privacy-container,
+.terms-container,
+.refund-container{
+  max-width:var(--maxw);
+  padding:48px var(--pad-x) 56px;
+  margin:0 auto;
+}
+
+.privacy-section,
+.tc-section,
+.rf-section{
+  margin-bottom:var(--section-gap);
+}
+
+.privacy-section h2,
+.tc-section h2,
+.rf-section h2{
+  font-size:var(--fz-h2);
+  font-weight:700;
+  color:var(--brand);
+  margin:0 0 10px;
+}
+
+.privacy-section p,
+.privacy-section li,
+.tc-section p,
+.tc-section li,
+.rf-section p,
+.rf-section li{
+  font-size:var(--fz-body);
+  color:var(--muted);
+  margin:0 0 var(--para-gap);
+  line-height:1.8;
+}
+
+/* bullet/number lists keep tidy spacing */
+.privacy-section ul,
+.tc-section ul,
+.rf-section ul{
+  padding-left: 20px;
+  margin: 8px 0 0;
+}
+.privacy-section li + li,
+.tc-section li + li,
+.rf-section li + li{
+  margin-top: 6px;
+}
+
+/* Paragraph block spacing after lists */
+.privacy-section ul + p,
+.tc-section ul + p,
+.rf-section ul + p{
+  margin-top: 12px;
+}
+
+/* =========================================================
+   “Information We Collect” — plain (no boxes), aligned
+   ========================================================= */
+.info-row{ display:block; margin-top:8px; }
+.info-item{ margin:0 0 14px; }
+.info-item h3{
+  margin:0 0 4px;
+  font-family:"Roboto","Segoe UI",Arial,sans-serif; /* match body */
+  font-weight:600;
+  font-size:var(--fz-body);
+  color:var(--ink);
+}
+.info-item p{
+  margin:0;
+  font-size:var(--fz-body);
+  color:var(--muted);
+  line-height:1.72;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 900px){
+  .privacy-hero,
+  .terms-hero,
+  .refund-hero{ min-height: 280px; }
+
+  .privacy-hero-content,
+  .terms-hero-content,
+  .refund-hero-content{ padding:56px var(--pad-x) 36px; }
+
+  .privacy-container,
+  .terms-container,
+  .refund-container{ padding:40px var(--pad-x) 48px; }
+
+  :root{
+    --section-gap: 40px;
+    --para-gap: 10px;
+  }
+}
+
+@media (max-width: 560px){
+  .privacy-hero,
+  .terms-hero,
+  .refund-hero{ min-height: 240px; }
+  .privacy-hero-content,
+  .terms-hero-content,
+  .refund-hero-content{ padding:40px var(--pad-x) 28px; }
+
+  .privacy-hero-content h1,
+  .terms-hero-content h1,
+  .refund-hero-content h1{
+    font-size: clamp(26px, 7vw, 34px);
+  }
+
+  .privacy-section h2,
+  .tc-section h2,
+  .rf-section h2{
+    font-size: clamp(18px, 5.2vw, 26px);
+  }
+
+  .privacy-section p, .privacy-section li,
+  .tc-section p, .tc-section li,
+  .rf-section p, .rf-section li{
+    font-size: clamp(13px, 4.2vw, 16px);
+  }
+}
+
+/* =========================================================
+   Accessibility niceties
+   ========================================================= */
+@media (prefers-reduced-motion: reduce){
+  .privacy-hero-content,
+  .terms-hero-content,
+  .refund-hero-content{
+    scroll-behavior: auto;
+  }
+}

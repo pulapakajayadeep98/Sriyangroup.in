@@ -1,0 +1,52 @@
+/* ===== Page Loader (full screen) ===== */
+.pgloader{
+  position: fixed; inset: 0;
+  background: rgba(255,255,255, 0.85);
+  backdrop-filter: blur(4px);
+  display: grid; place-items: center;
+  z-index: 9999;
+  opacity: 0; pointer-events: none;
+  transition: opacity .25s ease;
+}
+.pgloader.is-visible{ opacity: 1; pointer-events: auto; }
+
+.pgloader__box{
+  position: relative;
+  width: 120px; height: 120px;
+  display: grid; place-items: center;
+}
+
+.pgloader__logo{
+  width: 72px; height: 72px; object-fit: contain;
+  filter: drop-shadow(0 6px 18px rgba(12,21,39,.12));
+  animation: logoPulse 1.6s ease-in-out infinite;
+}
+
+/* ring spinner around the logo */
+.pgloader__ring{
+  position: absolute; inset: 0;
+  border-radius: 999px;
+  border: 6px solid rgba(12,21,39,.08);
+  border-top-color: #0c1527;             /* navy */
+  animation: ringSpin 1s linear infinite;
+  box-shadow: 0 10px 26px rgba(12,21,39,.08) inset;
+}
+
+.pgloader__hint{
+  position: absolute; bottom: -28px; left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-main, "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif);
+  font-weight: 700; font-size: 12px; letter-spacing: .12em;
+  text-transform: uppercase; color: #334155;
+}
+
+@keyframes ringSpin { to { transform: rotate(360deg); } }
+@keyframes logoPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.06); opacity: .95; }
+}
+
+/* motion-safe */
+@media (prefers-reduced-motion: reduce){
+  .pgloader__ring, .pgloader__logo { animation: none; }
+}

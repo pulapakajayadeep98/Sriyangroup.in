@@ -1,0 +1,47 @@
+:root {
+  /* --- Corporate Color Palette --- */
+  --bg: #ffffff;
+  --text: #2b2b2b;
+  --primary: #004aad;
+  --accent: #e7b52b;
+  --muted: #6c757d;
+
+ 
+
+  /* --- Typography --- */
+  --font-main: "Inter", "Poppins", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ===============================
+   Global Reset
+================================= */
+
+
+/* ===============================
+   Body
+================================= */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-main);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ===============================
+   Container Wrapper (Optional)
+================================= */
+
+/* ===============================
+   Headings
+================================= */
+
+/* ===============================
+   Links
+
+/* ===============================
+   Section Layout
+================================= */
+

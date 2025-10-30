@@ -1,0 +1,275 @@
+/* ====================================================================
+   S R I Y A N   G R O U P — Services Page (Refined, Full-Width Feel)
+   NOTE: Hero is unchanged. This file restyles everything below it.
+   ==================================================================== */
+
+/* ----------------- Page root (scoped) ----------------- */
+.svc-wrap {
+  --navy: #0c1527;
+  --navy-2: #142241;
+  --gold: #d4af37;
+  --muted: #5b687a;
+  --ink: #0f172a;
+  --line: #e6e8ee;
+  --surface: #ffffff;
+  --soft: #f8fafc;
+  --sky-50: #eef7ff;     /* light blue for CTA band */
+  --sky-100: #e3f1ff;
+  --focus: rgba(33, 150, 243, .25);
+
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--ink);
+  background: #fff;
+}
+
+/* ----------------- HERO (UNCHANGED) ------------------- */
+.svc-hero {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 360px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: grid;
+  place-items: center;
+  margin-bottom: 48px; /* slightly tighter to feel connected */
+}
+.svc-hero__overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(12, 21, 39, 0.6);
+  display: grid;
+  place-items: center;
+}
+.svc-hero__title {
+  color: #fff;
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* ----------------- Containers ----------------- */
+/* Wider container so the page doesn’t feel boxed */
+.svc-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 34px 24px;
+}
+
+/* ----------------- Intro ----------------- */
+.svc-intro {
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto 30px;
+}
+.svc-intro h2 {
+  font-size: clamp(26px, 3.5vw, 40px);   /* bigger headline */
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 12px;
+  letter-spacing: .2px;
+}
+.svc-intro p {
+  color: var(--muted);
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ----------------- Services grid ----------------- */
+.svc-grid {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* fluid full width */
+}
+
+.svc-card {
+  position: relative;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+  border: none;                         /* no box border */
+  border-radius: 16px;
+  padding: 26px;                        /* roomier */
+  box-shadow: 0 10px 28px rgba(17,30,58,.06); /* airy, not boxy */
+  transition: transform .14s ease, box-shadow .14s ease;
+}
+.svc-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(17,30,58,.12);
+}
+
+.svc-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.svc-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  color: #1d4ed8; /* refined icon stroke (blue) */
+  background: #eef2ff;
+  border: 1px solid #dbe6ff;
+  flex-shrink: 0;
+}
+
+.svc-card h3 {
+  margin: 0;
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: .2px;
+}
+
+.svc-card ul {
+  margin: 12px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.85;
+}
+.svc-card ul li {
+  margin-bottom: 10px;
+  padding-left: 2px;
+  border-left: 2px solid #eef2ff;  /* subtle divider accent */
+}
+.svc-card ul li:last-child { margin-bottom: 0; }
+
+/* ----------------- Benefits (new, more attractive format) ----------------- */
+.svc-benefits {
+  background: linear-gradient(180deg, #ffffff 0%, var(--soft) 100%);
+  border-top: 1px solid #eef2f6;
+  border-bottom: 1px solid #eef2f6;
+}
+.svc-benefits h2 {
+  text-align: center;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 800;
+  color: var(--navy);
+  margin: 0 0 22px;
+  letter-spacing: .2px;
+}
+.benefit-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.benefit {
+  position: relative;
+  background: #fff;
+  border: none;
+  border-radius: 18px;
+  padding: 22px 22px 22px 24px;
+  box-shadow: 0 12px 30px rgba(17,30,58,.08);
+  overflow: hidden;
+}
+.benefit::before{
+  content:"";
+  position:absolute; inset:0;
+  background: radial-gradient(1200px 300px at -10% -20%, rgba(29,78,216,.06), transparent 60%);
+  pointer-events:none;
+}
+.benefit h4 {
+  margin: 0 0 8px;
+  font-size: clamp(16px, 1.6vw, 20px);
+  font-weight: 800;
+  color: var(--navy-2);
+}
+.benefit p {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(14px, 1.2vw, 16px);
+  line-height: 1.75;
+}
+.benefit-dot {
+  width: 12px; height: 12px; display: inline-block; border-radius: 50%;
+  background: #1d4ed8; margin-bottom: 10px;
+  box-shadow: 0 0 0 6px rgba(29,78,216,.08);
+}
+
+/* ----------------- Collaboration CTA (full-width, light blue) ----------------- */
+/* ----------------- Collaboration CTA (full-width, light blue) ----------------- */
+.svc-collab {
+  background: linear-gradient(135deg, #eaf4ff 0%, #dfefff 100%);
+  color: #0c1527;
+  width: 100vw;               /* span full viewport width */
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top: 1px solid #cce4ff;
+  border-bottom: 1px solid #cce4ff;
+  margin-top: 60px;
+}
+
+.collab-inner {
+  text-align: center;
+  padding: 60px 20px 64px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.collab-inner h2 {
+  margin: 0 0 14px;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800;
+  color: #0c1527;
+  letter-spacing: 0.4px;
+}
+
+.collab-inner p {
+  margin: 0 0 24px;
+  color: #22324a;
+  font-size: clamp(17px, 1.4vw, 19px);
+  line-height: 1.9;
+}
+
+.collab-btn {
+  display: inline-block;
+  background: #0c1527;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 14px;
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: all 0.25s ease;
+  box-shadow: 0 12px 32px rgba(12,21,39,0.25);
+}
+.collab-btn:hover {
+  background: #152349;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(12,21,39,0.3);
+}
+.collab-btn:active { transform: translateY(0); }
+.collab-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(33,150,243,0.25);
+}
+
+
+/* ----------------- Accessible focus ----------------- */
+.svc-wrap a:focus-visible,
+.svc-wrap button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--focus);
+  border-radius: 10px;
+}
+
+/* ----------------- Responsive refinements ----------------- */
+@media (max-width: 768px) {
+  .svc-container { padding: 26px 18px; }
+  .svc-card { padding: 22px; }
+  .benefit { padding: 20px; }
+}
+
+/* ----------------- Motion-safe ----------------- */
+@media (prefers-reduced-motion: reduce) {
+  .svc-card, .collab-btn { transition: none; }
+}
